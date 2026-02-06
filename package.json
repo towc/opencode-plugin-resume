@@ -1,0 +1,28 @@
+{
+  "name": "opencode-resume",
+  "version": "0.1.0",
+  "description": "Resume or create OpenCode sessions by title",
+  "type": "module",
+  "main": "./dist/index.js",
+  "bin": {
+    "opencode-resume": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": ["opencode", "cli", "session", "resume"],
+  "author": "towc",
+  "license": "MIT",
+  "dependencies": {
+    "@opencode-ai/sdk": "^1.1.52"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
