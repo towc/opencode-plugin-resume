@@ -103,9 +103,11 @@ export async function getSessions(directory: string): Promise<SessionWithPreview
         })
         
         if (messagesRes.data) {
-          // Response is array of { info, parts } - find last user message
+          // Response is array of { info, parts } in chronological order (oldest first)
+          // Iterate in reverse to find the latest user message
           const messages = messagesRes.data as MessageWithParts[]
-          for (const msg of messages) {
+          for (let i = messages.length - 1; i >= 0; i--) {
+            const msg = messages[i]
             if (msg.info.role === 'user') {
               // Find first text part
               const textPart = msg.parts.find(p => p.type === 'text' && p.text)
